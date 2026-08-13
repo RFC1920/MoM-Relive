@@ -62,6 +62,15 @@ self-contained and does not require Python. Choose one of these components:
 - **Dedicated server** on the host machine.
 - **Client and dedicated server** when both run on the same PC.
 
+> **Windows security notice:** the current Windows release is not yet
+> Authenticode-signed. Windows may therefore show **Unknown publisher** or a
+> Microsoft Defender SmartScreen warning, and some antivirus products may
+> classify a new PyInstaller executable heuristically. This warning alone is
+> not proof of malware, but it must not be ignored blindly: download only from
+> the [official GitHub releases](https://github.com/drbermejor/MoM-Relive/releases)
+> and compare the file's SHA-256 value with the checksum published in that
+> release. Do not run a file whose checksum does not match.
+
 The applications request administrator rights because Steam commonly installs
 the game below `Program Files (x86)`.
 
@@ -79,6 +88,9 @@ have been smoke-tested in Debian 11 and Ubuntu 20.04 containers; the complete
 Steam client/server flow has been tested on CachyOS. See
 [README-LINUX.md](README-LINUX.md) for the precise validation matrix and known
 Proton compatibility settings.
+
+Planned platform-parity, unattended-server and signing work is tracked in the
+[project roadmap](ROADMAP.md).
 
 ## Host a server
 
