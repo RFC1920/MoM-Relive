@@ -1,0 +1,29 @@
+name: Build Linux package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Build on the Debian 11 compatibility baseline
+        run: ./build_release_linux_container.sh
+
+      - name: Upload package
+        uses: actions/upload-artifact@v7
+        with:
+          name: mom-relive-linux
+          path: |
+            dist/MoMRelive-*-linux-x86_64.tar.gz
+            dist/MoMRelive-*-linux-x86_64.tar.gz.sha256
+          if-no-files-found: error

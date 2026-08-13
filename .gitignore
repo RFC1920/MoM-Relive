@@ -1,0 +1,16 @@
+# Trazas: utiles para depurar, ruido para el historial
+requests.log
+unknown_requests.log
+state.json
+saves/
+*.orig
+*.bak
+
+__pycache__/
+*.pyc
+*.tmp
+
+# Artefactos reproducibles de PyInstaller
+build/
+dist/
+*.spec
